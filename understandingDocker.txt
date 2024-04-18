@@ -1,0 +1,14 @@
+FROM python:3.11.7-alpine ## Creating a base image i.e., Linux alpine [Python == 3.11.7]
+
+COPY . /app ## Creating a folder "app" and coping the base image to this app folder
+WORKDIR /app ## Makiing this app file as working directory
+RUN pip install -r reqs.txt ## default --- runs the command
+CMD py app.py  ## runs this command ultimately to execute the image or creates ann image of the content that is being displayed after this command
+
+## Creates a docker image using all the information
+
+! Commands
+docker build -t welcome-app .       # welcome-app is the name of the image {can be altered!!}  
+
+check if docker image is created or not  --->> docker images
+

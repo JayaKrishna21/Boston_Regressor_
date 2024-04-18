@@ -1,4 +1,7 @@
 pandas
 numpy
+flask
+dill
+scikit_learn
 
 -e .
