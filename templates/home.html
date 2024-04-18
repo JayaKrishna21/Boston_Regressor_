@@ -2,164 +2,171 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predict Data</title>
-    <style>
-        /* Inline CSS for styling */
-        body {
-            font-family: 'Helvetica', sans-serif;
-            background-color: #f0f8ff; /* Light blue background */
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Detection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      color: #000080;
+    }
 
-        .container {
-            width: 60%;
-            margin: 30px auto;
-            padding: 30px;
-            background-color: #fff; /* White container */
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(199, 21, 133, 0.1);
+    }
 
-        h1 {
-            text-align: center;
-            color: #4CAF50; /* Green color */
-            margin-bottom: 20px;
-        }
+    h1 {
+      text-align: center;
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            background-color: #e3f2fd; /* Light blue form background */
-            padding: 20px;
-            border-radius: 8px;
-        }
+    .form-group {
+      margin-bottom: 20px;
+    }
 
-        label {
-            margin: 10px 0 5px;
-            color: #5c6bc0; /* Blue color */
-        }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-        input[type="text"] {
-            padding: 12px;
-            border: 2px solid #90a4ae; /* Grey border */
-            border-radius: 8px;
-            margin-bottom: 15px;
-            transition: border-color 0.3s;
-            background-color: #fafafa; /* Light grey background */
-        }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #000080;
+      border-radius: 5px;
+      box-sizing: border-box;
+      color: #000000;
+      background-color: #f0f8ff;
+    }
 
-        input[type="text"]:focus {
-            border-color: #42a5f5; /* Blue border on focus */
-            outline: none;
-        }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #c71585;
+    }
 
-        input[type="submit"] {
-            padding: 12px;
-            background-color: #4CAF50; /* Green button */
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
+    button[type="submit"] {
+      display: block;
+      margin: 0 auto;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #c71585;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        input[type="submit"]:hover {
-            background-color: #66bb6a; /* Lighter green on hover */
-        }
+    button[type="submit"]:hover {
+      background-color: #0000cd;
+    }
 
-        #result {
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 10px;
-            background-color: #e1f5fe; /* Very light blue background */
-            color: #0277bd; /* Darker blue color */
-            display: none;
-        }
+    .result-container {
+      width: 80%;
+      margin: 20px auto;
+    }
 
-        #result h2 {
-            margin: 0 0 10px;
-        }
-
-        /* Add some styling for links (optional) */
-        a {
-            color: #0277bd;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .result-container .form-group {
+      margin-bottom: 0;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Predict Data</h1>
-        <form action="/predict_data" method="POST">
-            <!-- Inputs for user data -->
-            <label for="CRIM">CRIM:</label>
-            <input type="text" id="CRIM" name="CRIM" required>
 
-            <label for="ZN">ZN:</label>
-            <input type="text" id="ZN" name="ZN" required>
+  <div class="container">
+    <h1>Rent Prediction</h1>
+    <form id="Boston Regression" action="{{ url_for('predict_datapoint')}}" method="post">
+      
+      <div class="form-group">
+        <label for="CRIM">CRIM</label>
+        <input type="text" id="CRIM" name="CRIM" 
+          required>
+      </div>
+      <div class="form-group">
+        <label for="ZN">ZN</label>
+        <input type="text" id="ZN" name="ZN" 
+          required>
+      </div>
+      <div class="form-group">
+        <label for="INDUS">INDUS</label>
+        <input type="text" id="INDUS" name="INDUS"  required>
+      </div>
+      <div class="form-group">
+        <label for="CHAS">CHAS</label>
+        <input type="text" id="CHAS" name="CHAS" required>
+      </div>
+      <div class="form-group">
+        <label for="NOX">NOX</label>
+        <input type="text" id="NOX" name="NOX"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="RM">RM</label>
+        <input type="text" id="RM" name="RM"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="AGE">AGE</label>
+        <input type="text" id="AGE" name="AGE"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="DIS">DIS</label>
+        <input type="text" id="DIS" name="DIS"
+          required>
+      </div>
 
-            <label for="INDUS">INDUS:</label>
-            <input type="text" id="INDUS" name="INDUS" required>
+      <div class="form-group">
+        <label for="RAD">RAD</label>
+        <input type="text" id="RAD" name="RAD"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="TAX">TAX</label>
+        <input type="text" id="TAX" name="TAX"
+          required>
+      </div>
 
-            <label for="CHAS">CHAS:</label>
-            <input type="text" id="CHAS" name="CHAS" required>
+      <div class="form-group">
+        <label for="PTRATIO">PTRATIO</label>
+        <input type="text" id="PTRATIO" name="PTRATIO"
+          required>
+      </div>
 
-            <label for="NOX">NOX:</label>
-            <input type="text" id="NOX" name="NOX" required>
+      <div class="form-group">
+        <label for="B">B</label>
+        <input type="text" id="B" name="B"
+          required>
+      </div>
 
-            <label for="RM">RM:</label>
-            <input type="text" id="RM" name="RM" required>
+      <div class="form-group">
+        <label for="LSTAT">LSTAT</label>
+        <input type="text" id="LSTAT" name="LSTAT"
+          required>
+      </div>
 
-            <label for="AGE">AGE:</label>
-            <input type="text" id="AGE" name="AGE" required>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
-            <label for="DIS">DIS:</label>
-            <input type="text" id="DIS" name="DIS" required>
+  
+  <div class="container">
+    <h1> Result : {{ results }} </h1>
 
-            <label for="RAD">RAD:</label>
-            <input type="text" id="RAD" name="RAD" required>
+  </div>
 
-            <label for="TAX">TAX:</label>
-            <input type="text" id="TAX" name="TAX" required>
 
-            <label for="PTRATIO">PTRATIO:</label>
-            <input type="text" id="PTRATIO" name="PTRATIO" required>
 
-            <label for="B">B:</label>
-            <input type="text" id="B" name="B" required>
-
-            <label for="LSTAT">LSTAT:</label>
-            <input type="text" id="LSTAT" name="LSTAT" required>
-
-            <!-- Submit button -->
-            <input type="submit" value="Predict">
-        </form>
-
-        <!-- Section to display the results -->
-        <div id="result">
-            <h2>Prediction Result:</h2>
-            <p>{{ results }}</p>
-        </div>
-    </div>
-
-    <script>
-        // Display the result if available
-        const results = "{{ results }}";
-        if (results) {
-            document.getElementById('result').style.display = 'block';
-        }
-    </script>
 </body>
 
 </html>
